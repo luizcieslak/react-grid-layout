@@ -119,7 +119,7 @@ function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e
 // All callbacks are of the signature (layout, oldItem, newItem, placeholder, e).
 /*:: export type CompactType = ?("horizontal" | "vertical");*/
 const isProduction = process.env.NODE_ENV === "production";
-const DEBUG = true;
+const DEBUG = false;
 
 /**
  * Return the bottom coordinate of the layout.
