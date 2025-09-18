@@ -611,6 +611,14 @@ const resizeWest = (currentSize, _ref3, containerWidth) => {
     height,
     width
   }, containerWidth, left);
+  if (left < 0) {
+    return {
+      height,
+      width: currentSize.left + currentSize.width,
+      top: constrainTop(top),
+      left: 0
+    };
+  }
   return {
     height,
     width: left < 0 ? currentSize.width : constrainWidth(currentSize.left, currentSize.width, width, containerWidth),
