@@ -605,12 +605,17 @@ const resizeWest = (currentSize, _ref3, containerWidth) => {
     height,
     width
   } = _ref3;
-  console.log('resizeWest', currentSize, {
-    top,
-    height,
-    width
-  }, containerWidth);
   const left = currentSize.left + currentSize.width - width;
+  console.log('resizeWest', {
+    currentSize,
+    secondaarg: {
+      top,
+      height,
+      width
+    },
+    containerWidth,
+    left
+  });
   if (left < 0 && width > currentSize.width) {
     return {
       height,
@@ -623,7 +628,7 @@ const resizeWest = (currentSize, _ref3, containerWidth) => {
     height,
     width: constrainWidth(left, currentSize.width, width, containerWidth),
     top: constrainTop(top),
-    left
+    left: constrainLeft(left)
   };
 };
 const resizeSouth = (currentSize, _ref4, containerWidth) => {
