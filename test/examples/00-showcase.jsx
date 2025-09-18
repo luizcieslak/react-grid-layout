@@ -21,7 +21,7 @@ type State = {|
   layouts: {[string]: Layout}
 |};
 
-const availableHandles = ["s", "w", "e", "n", "sw", "nw", "se", "ne"];
+const availableHandles = ["w", "e"];
 
 export default class ShowcaseLayout extends React.Component<Props, State> {
   static defaultProps: Props = {
@@ -36,7 +36,7 @@ export default class ShowcaseLayout extends React.Component<Props, State> {
     compactType: "vertical",
     resizeHandles: ['se'],
     mounted: false,
-    layouts: { lg: generateLayout(['se']) }
+    layouts: { lg: generateLayout(['w', 'e', 'n', 's']) }
   };
 
   componentDidMount() {
@@ -140,15 +140,15 @@ export default class ShowcaseLayout extends React.Component<Props, State> {
 }
 
 function generateLayout(resizeHandles) {
-  return _.map(_.range(0, 25), function(item, i) {
+  return _.map(_.range(0, 1), function(item, i) {
     var y = Math.ceil(Math.random() * 4) + 1;
     return {
-      x: Math.round(Math.random() * 5) * 2,
+      x: 0,
       y: Math.floor(i / 6) * y,
-      w: 2,
-      h: y,
+      w: 5,
+      h: 6,
       i: i.toString(),
-      static: Math.random() < 0.05,
+      static: false,
       resizeHandles
     };
   });
