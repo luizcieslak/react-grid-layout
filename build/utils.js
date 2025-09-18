@@ -605,12 +605,12 @@ const resizeWest = (currentSize, _ref3, containerWidth) => {
     height,
     width
   } = _ref3;
-  const left = currentSize.left - (width - currentSize.width);
+  const left = currentSize.left + currentSize.width - width;
   console.log('resizeWest', currentSize, {
     top,
     height,
     width
-  }, containerWidth, left);
+  }, containerWidth, left, currentSize.left - (width - currentSize.width));
   if (left < 0) {
     return {
       height,
